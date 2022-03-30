@@ -37,7 +37,7 @@
             .then(data => result.innerHTML = JSON.stringify(data))
     }
     create_video.onclick = () => {
-        fetch('http://localhost:5000/videos', {
+        fetch('https://monday-week-01.herokuapp.com/videos', {
             method: 'POST',
             body: JSON.stringify({title: create_title.value}),
             headers: {
@@ -48,7 +48,7 @@
             .then(data => result.innerHTML = JSON.stringify(data))
     }
     update_video.onclick = () => {
-        fetch(`http://localhost:5000/videos/${update_id.value}`,{
+        fetch(`https://monday-week-01.herokuapp.com/videos/${update_id.value}`,{
             method: 'PUT', 
             body: JSON.stringify({title: update_title.value}),
             headers: {
@@ -60,7 +60,7 @@
     }
 
     delete_video.onclick = () => {
-        fetch(`http://localhost:5000/videos/${delete_id.value}`,
+        fetch(`https://monday-week-01.herokuapp.com/videos/${delete_id.value}`,
         {
             method: 'DELETE',  
         })
