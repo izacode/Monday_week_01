@@ -32,7 +32,7 @@
             .then(data => result.innerHTML = JSON.stringify(data))
     }
     read_single_video.onclick = () => {
-        fetch('http://localhost:5000/videos/' + read_id.value)
+        fetch('https://monday-week-01.herokuapp.com/videos/' + read_id.value)
             .then(res => res.json())
             .then(data => result.innerHTML = JSON.stringify(data))
     }
