@@ -27,7 +27,7 @@
 <div id="result"></div>
 <script>
     read_all_videos.onclick = () => {
-        fetch('http://localhost:5000/videos')
+        fetch('https://monday-week-01.herokuapp.com/videos')
             .then(res => res.json())
             .then(data => result.innerHTML = JSON.stringify(data))
     }
