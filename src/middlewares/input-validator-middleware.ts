@@ -10,7 +10,7 @@ export const inputValidatorMiddleware = (
   
   const errors = validationResult(req)
   if(!errors.isEmpty()){
-    res.status(400).json({errorMessages: errors.array(), resultcode: 0})
+    res.status(404).json({errorMessages: errors.array(), resultcode: 0})
   }else{
     next();
   }
