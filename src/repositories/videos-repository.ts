@@ -26,18 +26,22 @@ export const videosRepository = {
     return newVideo;
   },
   updateVideoById(id: number, title: string) {
-    const updatedVideo = {
-      id,
-      title,
-      author: "it-incubator.eu",
-    };
-    videos.splice(id - 1, 1, updatedVideo);
-    return updatedVideo;
+    const video = videos.find((v) => v.id === id);
+    if (video) {
+      const updatedVideo = {
+        id,
+        title,
+        author: "it-incubator.eu",
+      };
+      videos.splice(id - 1, 1, updatedVideo);
+      return updatedVideo;
+    }
+    return 0;
   },
   deleteVideoById(id: number) {
     const video = videos.find((v) => v.id === id);
     const deletedVideo = video ? videos.splice(id - 1, 1) : 0;
-    console.log(deletedVideo);
-    return deletedVideo
+
+    return deletedVideo;
   },
 };

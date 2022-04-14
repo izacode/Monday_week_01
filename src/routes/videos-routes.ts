@@ -61,6 +61,9 @@ videosRouter.put(
       +req.params.id,
       req.body.title
     );
+    if (updatedVideo === 0) {
+      res.sendStatus(404);
+    }
     res.sendStatus(204);
   }
 );
