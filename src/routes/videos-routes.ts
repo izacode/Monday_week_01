@@ -26,8 +26,8 @@ videosRouter.get("/", (req: Request, res: Response) => {
 //  GET A SINGLE VIDEO =========================================
 videosRouter.get(
   "/:id",
-  //   idValidation,
-  //   inputValidatorMiddleware,
+  idValidation,
+  inputValidatorMiddleware,
   (req: Request, res: Response) => {
     const video = videosRepository.getVideoById(+req.params.id);
 
