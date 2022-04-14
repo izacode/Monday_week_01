@@ -30,7 +30,9 @@ videosRouter.get(
   inputValidatorMiddleware,
   (req: Request, res: Response) => {
     const video = videosRepository.getVideoById(+req.params.id);
-
+    if(video===0){
+      res.status(404).json(video);
+    }
     res.status(200).json(video);
   }
 );
@@ -70,7 +72,12 @@ videosRouter.delete(
   idValidation,
   inputValidatorMiddleware,
   (req: Request, res: Response) => {
-    videosRepository.deleteVideoById(+req.params.id);
+    const deletedVideo = videosRepository.deleteVideoById(+req.params.id);
+    if (deletedVideo === 0) {
+      res.sendStatus(404);
+    }
+
+
     res.sendStatus(204);
   }
 );
