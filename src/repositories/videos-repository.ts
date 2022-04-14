@@ -12,7 +12,8 @@ export const videosRepository = {
   },
   getVideoById(id: number) {
     const video = videos.find((v) => v.id === id);
-    return video ? video : 0;
+    const foundVideo = video ? video : 0;
+    return foundVideo;
   },
 
   createVideo(title: string) {
@@ -35,6 +36,7 @@ export const videosRepository = {
   },
   deleteVideoById(id: number) {
     const video = videos.find((v) => v.id === id);
-    return video ? videos.splice(id - 1, 1) : 0;
+    const deletedVideo = video ? videos.splice(id - 1, 1) : 0;
+    return deletedVideo
   },
 };

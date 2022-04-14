@@ -76,8 +76,6 @@ videosRouter.delete(
     if (deletedVideo === 0) {
       res.sendStatus(404);
     }
-
-
     res.sendStatus(204);
   }
 );
