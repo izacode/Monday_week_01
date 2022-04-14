@@ -1,10 +1,17 @@
 import { Request, Response, NextFunction } from "express";
+import {validationResult} from "express-validator";
 
-const inputValidatorMiddleware = (
+export const inputValidatorMiddleware = (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   // here we make validation. Also here we can transform returned object (for example to satisfy the Swagger API)
-  next();
+  
+  const errors = validationResult(req)
+  if(!errors.isEmpty()){
+    res.status(400).json({errorMessages: errors.array(), resultcode: 0})
+  }else{
+    next();
+  }
 };

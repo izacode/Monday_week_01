@@ -8,35 +8,32 @@ const videos = [
 
 export const videosRepository = {
   getVideos() {
-      return videos
+    return videos;
   },
   getVideoById(id: number) {
     const video = videos.find((v) => v.id === id);
-    return video
+    return video;
+  },
 
-  },
-  deleteVideoById(id: number) {
-    videos.splice(id - 1, 1);
-  },
-  updateVideoById(id: number, title: string) {
-    const videoID = Number(id);
-     const updatedVideo = {
-       id: videoID,
-       title: title,
-       author: "it-incubator.eu",
-     };
-     videos.splice(videoID - 1, 1, updatedVideo);
-     return updatedVideo
-
-  },
   createVideo(title: string) {
-
     const newVideo = {
       id: Number(videos.length + 1),
-      title: title,
+      title,
       author: "it-incubator.eu",
     };
     videos.push(newVideo);
-    return newVideo
+    return newVideo;
+  },
+  updateVideoById(id: number, title: string) {
+    const updatedVideo = {
+      id,
+      title,
+      author: "it-incubator.eu",
+    };
+    videos.splice(id - 1, 1, updatedVideo);
+    return updatedVideo;
+  },
+  deleteVideoById(id: number) {
+    videos.splice(id - 1, 1);
   },
 };
