@@ -37,6 +37,7 @@ export const videosRepository = {
   deleteVideoById(id: number) {
     const video = videos.find((v) => v.id === id);
     const deletedVideo = video ? videos.splice(id - 1, 1) : 0;
+    console.log(deletedVideo);
     return deletedVideo
   },
 };

@@ -69,8 +69,8 @@ videosRouter.put(
 
 videosRouter.delete(
   "/:id",
-  idValidation,
-  inputValidatorMiddleware,
+  // idValidation,
+  // inputValidatorMiddleware,
   (req: Request, res: Response) => {
     const deletedVideo = videosRepository.deleteVideoById(+req.params.id);
     if (deletedVideo === 0) {
